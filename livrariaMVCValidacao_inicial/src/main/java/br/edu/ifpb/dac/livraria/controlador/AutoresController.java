@@ -28,7 +28,6 @@ import br.edu.ifpb.dac.livraria.servico.AutorService;
 import br.edu.ifpb.dac.livraria.servico.LivroService;
 
 @Controller
-@RequestMapping("/autores")
 public class AutoresController {
 	
 	@Autowired
@@ -54,9 +53,6 @@ public class AutoresController {
 		return "/autores/autores";
 	}
 
-	public String detalhaLivro(Integer id) {
-		return "/livros/livro";
-	}
 	
 	@PostMapping("/adicionaAutor")
 	public String adicionaAutor(@ModelAttribute("autor") Autor autor, Model modelo) {
@@ -66,10 +62,6 @@ public class AutoresController {
 		return "redirect:/autores/lista";
 	}
 	
-	public void atualizaLivro(Livro livro, Integer id) {
-		
-//		autorService.atualizaLivro(id,livro);
-	}
 
 
 }
