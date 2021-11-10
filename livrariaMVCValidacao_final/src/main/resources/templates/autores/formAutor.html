@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:insert="~{fragmentos :: head('Adiciona Autor')}">
+</head>
+<body>
+	<main class="container">
+		<div>
+			<header th:insert="~{fragmentos :: header('Adiciona Novo Autor')}">
+            </header>
+
+			<div class="card">
+						<form class="card-body" method="post" th:action="@{/adicionaAutor}"
+				th:object="${autor}">
+				<div class="form-group">
+					<label for="nome" class="form-label">Nome:</label>
+					<input type="text" required id="nome" class="form-control"	th:field="*{nome}"  th:errorclass="is-invalid">
+					<div class="invalid-feedback" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erros</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="form-label">E-mail:</label>
+					<input type="email" required id="email" class="form-control" th:field="*{email}" th:errorclass="is-invalid">
+					<div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Erros</div>
+				</div> 
+				
+
+				<button type="submit" value="Enviar">Enviar</button>
+			</form>
+			</div>
+
+		</div>
+		<footer th:replace="~{fragmentos :: footer}">
+    	</footer>
+	</main>
+</body>
+</html>
