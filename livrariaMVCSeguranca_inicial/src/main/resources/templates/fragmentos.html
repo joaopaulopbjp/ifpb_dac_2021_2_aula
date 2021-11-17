@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head th:fragment="head(titulo)">
+<meta charset="UTF-8">
+<title th:text="${titulo}">Titulo</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+	integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<header th:fragment="header(texto)">
+		<div class="jumbotron mb-0">
+			<h1 class="display-4" th:text="${texto}">Texto</h1>
+			<h3>            	
+				<span> Usuário </span>
+            </h3>
+		</div>
+		<nav
+			class="navbar navbar-expand-lg navbar-light bg-light">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="/autores/publico/lista"><button
+								class="btn btn-primary">Home</button></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link"
+							href="/autores/protegido/meusdados"><button
+								class="btn btn-primary">Meus Dados</button></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link"
+						href="/autores/protegido/home"><button class="btn btn-primary">Home
+							Administração</button></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link"
+						href="/autores/protegido/form"><button class="btn btn-primary">Adiciona Autor</button></a>
+					</li>
+					<li class="nav-item">
+						<a  class="nav-link" href="/login"><button
+								class="btn btn-primary">Login</button></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/logout"><button
+								class="btn btn-primary">Sair</button></a>
+					</li>
+				</ul>
+		</nav>
+	</header>
+	<footer th:fragment="footer"> &copy; 2021 Livraria DAC on line
+	</footer>
+</body>
+</html>
