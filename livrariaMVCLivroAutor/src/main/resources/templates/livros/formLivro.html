@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:insert="~{fragmentos :: head('Adiciona Autor')}">
+</head>
+<body>
+	<main class="container">
+		<div>
+			<header th:insert="~{fragmentos :: header('Adiciona Novo Livro')}">
+			</header>
+
+			<div class="card">
+				<form class="card-body" method="post" th:action="@{adicionaLivro}"
+					th:object="${livro}">
+					<div class="form-group" id="grupo">
+						<h4 id="titulo">Escolha os autores do livro</h4>
+						<div class="container">
+							<div class="row justify-content-md-center">
+								<div class="col-md-auto"
+									th:if="${autores!=null and autores.empty}">
+									<div>
+										<h5 style="text-align: center;">Não existe autores
+											cadastrados</h5>
+									</div>
+								</div>
+								<div class="col-md-auto"
+									th:unless="${autores!=null and autores.empty}">
+									<label class="checkbox-inline">
+										<input type="checkbox"  th:each="autor : ${autores}" th:value="${autor.id}"
+										th:text="${autor.nome}" th:field="*{autores}"/>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="titulo" class="form-label">Titulo:</label> <input
+							type="text" required id="titulo" class="form-control"
+							th:field="*{titulo}" th:errorclass="is-invalid">
+						<div class="invalid-feedback"
+							th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Erros</div>
+					</div>
+					<div class="form-group">
+						<label for="preco" class="form-label">Preço:</label> <input
+							type="number" required id="preco" class="form-control"
+							th:field="*{preco}" th:errorclass="is-invalid">
+						<div class="invalid-feedback"
+							th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}">Erros</div>
+					</div>
+
+
+					<button type="submit" value="Enviar">Enviar</button>
+				</form>
+			</div>
+
+		</div>
+		<footer th:replace="~{fragmentos :: footer}"> </footer>
+	</main>
+</body>
+</html>
