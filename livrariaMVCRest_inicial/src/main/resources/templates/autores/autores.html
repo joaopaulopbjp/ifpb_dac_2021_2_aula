@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{fragmentos :: head('Home - Lista de autores')}">
+</head>
+<body>
+    <main class="container">
+        <div>
+            <header th:insert="~{fragmentos :: header('Home - Lista de autores')}">
+            </header>
+
+            <div class="listaLivros" th:each="autor : ${autores}">
+                <div class="card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-body">
+                        <div> Nome: <span th:text="${autor.nome}"></span></div>
+                        <div > E-mail: <span th:text="${autor.email}"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="~{fragmentos :: footer}">
+    	</footer>
+    </main>
+</body>
+</html>
