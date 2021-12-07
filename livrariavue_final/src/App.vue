@@ -1,0 +1,32 @@
+<template>
+  <h1 v-text="msg"></h1>
+  <Navegacao></Navegacao>
+  <router-view/>
+</template>
+
+<script>
+import Navegacao from './views/Navegacao.vue'
+
+export default {
+  name: 'App',
+  data() {
+      return {
+        msg:"Bem vindo ao Vue JS"
+      }
+    },
+  components: {
+    Navegacao
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
